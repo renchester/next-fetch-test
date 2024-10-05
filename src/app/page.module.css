@@ -4,3 +4,40 @@
   overflow-x: hidden;
   background-color: var(--color-background);
 }
+
+.error {
+  font-family: var(--font-inter);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  padding-inline: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-dark-2);
+  color: var(--color-grey-light-1);
+
+  .error__heading {
+    font-size: var(--text-3xl);
+    font-family: var(--font-onest);
+    font-weight: 800;
+    margin-bottom: 0.125rem;
+  }
+
+  .error__details {
+    font-weight: 200;
+    font-size: var(--text-xs);
+  }
+
+  .error__link {
+    margin-top: 2rem;
+    border: 1px solid currentColor;
+    padding: 0.5rem 1rem;
+    font-size: var(--text-xs);
+  }
+
+  .error__link:hover,
+  .error__link:focus {
+    background-color: var(--color-primary);
+  }
+}

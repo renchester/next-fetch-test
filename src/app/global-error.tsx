@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import styles from './page.module.css';
 
 // Error boundaries must be Client Components
 
@@ -17,10 +18,12 @@ export default function GlobalError({
   return (
     // global-error must include html and body tags
     <html lang="en">
-      <body>
-        <h2>Something went wrong!</h2>
+      <body className={styles.error}>
+        <h2 className={styles.error__heading}>Something went wrong!</h2>
 
-        <button onClick={() => reset()}>Try again</button>
+        <button className={styles.error__link} onClick={() => reset()}>
+          Try again
+        </button>
       </body>
     </html>
   );
