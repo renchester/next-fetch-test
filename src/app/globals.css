@@ -1,3 +1,82 @@
+:root {
+  --max-page-width: 88em;
+  --header-height: 90px;
+  --section-padding: 1.65em;
+  --box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  --box-shadow-2: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --box-shadow-3: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+  --text-base-size: 1rem;
+
+  --text-scale-ratio: 1.15;
+
+  --text-4xs: calc(var(--text-3xs) / var(--text-scale-ratio));
+  --text-3xs: calc(var(--text-2xs) / var(--text-scale-ratio));
+  --text-2xs: calc(var(--text-xs) / var(--text-scale-ratio));
+  --text-xs: calc(var(--text-base-size) / var(--text-scale-ratio));
+  --text-sm: var(--text-base-size);
+  --text-md: calc(var(--text-base-size) * var(--text-scale-ratio));
+  --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  --text-2xl: calc(var(--text-xl) * var(--text-scale-ratio));
+  --text-3xl: calc(var(--text-2xl) * var(--text-scale-ratio));
+  --text-4xl: calc(var(--text-3xl) * var(--text-scale-ratio));
+
+  --text-title: clamp(3rem, 2rem + 2.6667vw, 4rem);
+
+  --color-primary: rgb(255, 105, 0);
+  --color-grad-1: rgba(82, 51, 113);
+  --color-grad-2: rgb(247, 233, 167);
+  --color-grad-3: rgb(15, 126, 97);
+  --color-grad-4: rgba(104, 100, 108, 0.65);
+
+  --color-background: #fefefe;
+  --color-background-accent: #f3f3f3;
+  --color-background-alpha75: #fefefebe;
+  --color-background-alpha50: #fefefe86;
+  --color-background-alpha25: #fefefe48;
+  --color-background-opposite: #353535;
+
+  --color-light-1: #fefefe;
+  --color-light-2: #f4ebd9;
+  --color-dark-1: #3a3b37;
+  --color-dark-2: #090909;
+
+  --color-text: #000000;
+  --color-text-accent: #423c3a;
+  --color-text-accent-2: #585352;
+  --color-text-alpha75: #423c3ab7;
+  --color-text-alpha50: #423c3a83;
+  --color-text-alpha25: #423c3a48;
+  --color-text-alpha10: #423c3a1f;
+  --color-text-opposite: #f2f5ff;
+
+  --color-grey-light-1: #e9e9e9;
+  --color-grey-light-2: #f2efee;
+  --color-grey-light-3: #d3c7c3;
+  --color-grey-dark-1: #4b4747;
+  --color-grey-dark-2: #272525;
+
+  --color-error: #86221b;
+  --color-success: #14630d;
+
+  --border-rd-xs: 4px;
+  --border-rd-sm: 8px;
+  --border-rd-md: 12px;
+  --border-rd-full: 20px;
+
+  --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  --shadow-sm: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --shadow-md: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  --shadow-lg: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+  --card-height: 210px;
+}
+
 /* ==== Browser Resets ==== */
 /* prettier-ignore */
 html,
@@ -17,7 +96,7 @@ html,
 /* prettier-ignore */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-display: block;
+  display: block;
 }
 body {
   line-height: normal;
