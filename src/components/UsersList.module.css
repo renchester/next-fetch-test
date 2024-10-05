@@ -1,7 +1,8 @@
 .heading {
   margin-block: 1.5rem;
-  font-weight: 600;
+  font-weight: 800;
   text-align: center;
+  color: var(--color-grad-1);
 }
 
 .container {

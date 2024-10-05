@@ -30,7 +30,7 @@
   --color-grad-1: rgba(82, 51, 113);
   --color-grad-2: rgb(247, 233, 167);
   --color-grad-3: rgb(15, 126, 97);
-  --color-grad-4: rgba(104, 100, 108, 0.65);
+  --color-grad-4: rgba(104, 100, 108, 0.85);
 
   --color-background: #fefefe;
   --color-background-accent: #f3f3f3;
@@ -65,6 +65,7 @@
   --border-rd-xs: 4px;
   --border-rd-sm: 8px;
   --border-rd-md: 12px;
+  --border-rd-lg: 15px;
   --border-rd-full: 20px;
 
   --shadow-xs: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;

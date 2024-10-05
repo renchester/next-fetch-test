@@ -1,6 +1,7 @@
 .page {
   font-family: var(--font-inter);
   width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
   background-color: var(--color-background);
 }

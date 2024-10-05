@@ -17,7 +17,7 @@
 }
 
 .card:focus {
-  outline: 1px solid var(--color-grad-4);
+  outline: 1px solid var(--color-text-alpha-25);
   transform: scale(1.01);
   box-shadow: var(--shadow-sm);
 }
@@ -33,7 +33,7 @@
     right: 0;
     top: 0;
     z-index: -1;
-    background: var(--color-grey-light-1);
+    background: linear-gradient(45deg, rgb(255, 203, 160), rgb(255, 220, 220));
     height: calc(var(--card-height) * 0.375);
   }
 
@@ -41,6 +41,7 @@
     box-shadow: var(--shadow-md);
     object-fit: cover;
     border-radius: 100%;
+    background: var(--color-grey-light-2);
   }
 
   .avatar__badge {
@@ -73,7 +74,7 @@
     background: var(--color-grad-4);
     padding: 0.125rem 0.5rem;
     color: white;
-    border-radius: var(--border-rd-full);
+    border-radius: var(--border-rd-md);
     box-shadow: var(--shadow-sm);
   }
 
@@ -83,7 +84,7 @@
   }
 
   .info__email {
-    font-size: var(--text-3xs);
+    font-size: var(--text-2xs);
     font-weight: 300;
   }
 
