@@ -3,9 +3,55 @@
 import { useEffect, useState } from 'react';
 import { API_URL } from '@/config';
 import { type ResponseData, type User } from '@/types';
+import Loading from './Loading';
 import UserCard from './UserCard';
+import styles from './UsersList.module.css';
 
 type FetchStatus = 'idle' | 'loading' | 'blocked' | 'error';
+
+function Status({
+  status,
+  isDisabled,
+  goToNextPage,
+}: {
+  status: FetchStatus;
+  isDisabled: boolean;
+  goToNextPage: () => void;
+}) {
+  switch (status) {
+    case 'blocked':
+      return (
+        <p className={styles.status__text} aria-live="polite">
+          You have reached the end of this list
+        </p>
+      );
+
+    case 'error':
+      return (
+        <p className={styles.status__text} aria-live="polite">
+          Something went wrong...
+        </p>
+      );
+
+    case 'loading':
+      return (
+        <div className={styles.status__loading}>
+          <Loading />
+        </div>
+      );
+    default:
+      return (
+        <button
+          type="button"
+          onClick={goToNextPage}
+          disabled={isDisabled}
+          className={styles.button}
+        >
+          Load More
+        </button>
+      );
+  }
+}
 
 function UsersList({ initialUsers }: { initialUsers: User[] }) {
   const [users, setUsers] = useState(initialUsers);
@@ -63,24 +109,28 @@ function UsersList({ initialUsers }: { initialUsers: User[] }) {
   }, [isBlocked, pageNum, initialUsers]);
 
   return (
-    <main>
-      <ul>
+    <main className={styles.container} aria-labelledby="users-label">
+      <h1 id="users-label" className={styles.heading}>
+        Users
+      </h1>
+
+      <ul className={styles.list}>
         {users.length > 0 ? (
           users.map((user: User) => <UserCard key={user.id} user={user} />)
         ) : (
-          <p>There&apos;s nothing to see here...</p>
+          <p className={styles.status} aria-live="polite">
+            There&apos;s nothing to see here...
+          </p>
         )}
       </ul>
 
-      {isBlocked ? (
-        <p>You have reached the end of this list</p>
-      ) : fetchStatus === 'error' ? (
-        <p>Something went wrong...</p>
-      ) : (
-        <button type="button" onClick={goToNextPage} disabled={isDisabled}>
-          Load More
-        </button>
-      )}
+      <div className={styles.status}>
+        <Status
+          status={fetchStatus}
+          isDisabled={isDisabled}
+          goToNextPage={goToNextPage}
+        />
+      </div>
     </main>
   );
 }
