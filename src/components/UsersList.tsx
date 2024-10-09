@@ -21,21 +21,21 @@ function Status({
   switch (status) {
     case 'blocked':
       return (
-        <p className={styles.status__text} aria-live="polite">
+        <p className={styles.status__text} aria-live="polite" role="alert">
           You have reached the end of this list
         </p>
       );
 
     case 'error':
       return (
-        <p className={styles.status__text} aria-live="polite">
+        <p className={styles.status__text} aria-live="polite" role="alert">
           Something went wrong...
         </p>
       );
 
     case 'loading':
       return (
-        <div className={styles.status__loading}>
+        <div className={styles.status__loading} role="status">
           <Loading />
         </div>
       );
