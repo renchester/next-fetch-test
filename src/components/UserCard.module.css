@@ -17,7 +17,7 @@
 }
 
 .card:focus {
-  outline: 1px solid var(--color-text-alpha-25);
+  outline: 1px solid var(--color-text-alpha10);
   transform: scale(1.01);
   box-shadow: var(--shadow-sm);
 }
@@ -37,6 +37,10 @@
     height: calc(var(--card-height) * 0.375);
   }
 
+  .avatar__main {
+    position: relative;
+  }
+
   .avatar__img {
     box-shadow: var(--shadow-md);
     object-fit: cover;
@@ -45,7 +49,29 @@
   }
 
   .avatar__badge {
+    --dimension: 22.5px;
     position: absolute;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    height: var(--dimension);
+    width: var(--dimension);
+    border-radius: var(--border-rd-full);
+    background: var(--color-grad-4);
+    transform: translate(-7.5%, -7.5%);
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-light-1);
+    font-family: var(--font-onest);
+    font-size: var(--text-xs);
+    opacity: 0;
+    transition: opacity 100ms ease-in;
+    box-shadow: var(--shadow-md);
+  }
+
+  .avatar__badge[data-active='true'] {
+    opacity: 1;
   }
 }
 
@@ -57,13 +83,20 @@
   text-align: center;
   font-family: var(--font-onest);
 
+  .info__main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
   .info__name {
     font-size: var(--text-lg);
     font-weight: 700;
     color: var(--color-primary);
     line-height: 1;
-    vertical-align: top;
-    margin-bottom: 0.25rem;
+    white-space: nowrap;
   }
 
   .info__detail {

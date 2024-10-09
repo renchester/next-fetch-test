@@ -26,11 +26,11 @@
 
   --text-title: clamp(3rem, 2rem + 2.6667vw, 4rem);
 
-  --color-primary: rgb(255, 105, 0);
+  --color-primary: rgb(235, 98, 0);
   --color-grad-1: rgba(82, 51, 113);
   --color-grad-2: rgb(247, 233, 167);
   --color-grad-3: rgb(15, 126, 97);
-  --color-grad-4: rgba(104, 100, 108, 0.85);
+  --color-grad-4: rgba(85, 82, 89, 0.8);
 
   --color-background: #fefefe;
   --color-background-accent: #f3f3f3;

@@ -1,31 +1,55 @@
 'use client';
 
 import Image from 'next/image';
+import { useRef, useState } from 'react';
 import { type User } from '@/types';
 import styles from './UserCard.module.css';
 
 function UserCard({ user }: { user: User }) {
+  const [isActive, setActive] = useState(false);
+  const elementRef = useRef<HTMLLIElement | null>(null);
+
+  const activate = () => setActive(true);
+  const deactivate = () => setActive(false);
+
   return (
-    <li key={user.id} className={styles.card} tabIndex={0}>
+    <li
+      key={user.id}
+      className={styles.card}
+      tabIndex={0}
+      onFocus={activate}
+      onBlur={deactivate}
+      onMouseEnter={activate}
+      onMouseLeave={deactivate}
+      ref={elementRef}
+      data-active={isActive}
+    >
       <article
         className={styles.card__article}
         aria-labelledby={`${user.id}-name`}
       >
         <div className={styles.avatar}>
           <div className={styles.avatar__bg}></div>
-          <Image
-            src={user.avatar}
-            className={styles.avatar__img}
-            width={100}
-            height={100}
-            alt={`Avatar for ${user.first_name} ${user.last_name}`}
-          />
-          <div className={styles.avatar__badge} />
+          <div className={styles.avatar__main}>
+            <Image
+              src={user.avatar}
+              className={styles.avatar__img}
+              width={100}
+              height={100}
+              alt={`Avatar for ${user.first_name} ${user.last_name}`}
+              priority
+            />
+            <div className={styles.avatar__badge} data-active={isActive}>
+              {user.id}
+            </div>
+          </div>
         </div>
         <div className={styles.info}>
-          <span id={`${user.id}-name`} className={styles.info__name}>
-            {user.first_name} {user.last_name}
-          </span>
+          <div className={styles.info__main}>
+            <span id={`${user.id}-name`} className={styles.info__name}>
+              {user.first_name} {user.last_name}
+            </span>
+          </div>
           <a href={`mailto:${user.email}`} className={styles.info__detail}>
             <svg
               className={styles.info__icon}
@@ -33,7 +57,7 @@ function UserCard({ user }: { user: User }) {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
                 id="SVGRepo_tracerCarrier"
                 strokeLinecap="round"
